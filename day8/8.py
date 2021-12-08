@@ -55,7 +55,7 @@ def get_2_5(options, six, three):
     for option in options:
         if len(option & six) == 5:
             five = "".join(option)
-        elif len(option & six) == 4 and "".join(option) != three :
+        elif len(option & six) == 4 and "".join(option) != three:
             two = "".join(option)
         else:
             continue
@@ -72,12 +72,12 @@ def get_mapping(d):
     mapping[4] = sorted_patterns[2]
     mapping[8] = sorted_patterns[9]
 
-    #others
+    # others
     mapping[3] = get_3(sorted_patterns[3:6], mapping[1])
     mapping[9], mapping[6], mapping[0] = get_9_6_0(sorted_patterns[6:9], mapping[3], mapping[1])
     mapping[2], mapping[5] = get_2_5(sorted_patterns[3:6], mapping[6], mapping[3])
 
-    flipped_mapping= {"".join(sorted(list(y))):x for x,y in mapping.items()}
+    flipped_mapping = {"".join(sorted(list(y))): x for x, y in mapping.items()}
     return flipped_mapping
 
 
@@ -108,5 +108,3 @@ if __name__ == '__main__':
         for mapping, display in zip(mappings, displays):
             total += get_number(mapping, display)
         print(f"Part 2: {total}")
-
-
