@@ -18,6 +18,7 @@ def check_straight(cord):
     return cord[0][0] == cord[1][0] or cord[0][1] == cord[1][1]
 
 
+# @todo: make less ugly
 def get_points(cord_pair):
     points = []
     for i in range(cord_pair[0][0], cord_pair[1][0] + 1):
