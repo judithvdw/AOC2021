@@ -72,11 +72,11 @@ def part1(cords):
 
 def part2(cords):
     all_points = []
-    diagonal_coards, straight_cords = get_cord_types(cords)
+    diagonal_cords, straight_cords = get_cord_types(cords)
     for cord in straight_cords:
         all_points.extend(get_points(cord))
 
-    for c in diagonal_coards:
+    for c in diagonal_cords:
         all_points.extend(get_diagonal_points(c))
 
     total = 0
