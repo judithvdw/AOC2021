@@ -28,7 +28,7 @@ def get_map(raw):
     return d
 
 
-def part_2(heightmap):
+def part_2(heightmap, low):
     ordered_heightmap = OrderedDict(sorted(heightmap.items(), key=lambda x: x[1]))
     basin_mapping = {k: k for k, v in low.items()}
 
@@ -50,10 +50,10 @@ def part_2(heightmap):
 
 
 if __name__ == '__main__':
-    with open('9.txt') as f:
+    with open('input/9.txt') as f:
         raw = f.readlines()
         heightmap = get_map(raw)
 
     low = get_low_points(heightmap)
     print(f"Part 1: {sum(low.values()) + len(low)}")
-    print(f"Part 2: {part_2(heightmap)}")
+    print(f"Part 2: {part_2(heightmap, low)}")

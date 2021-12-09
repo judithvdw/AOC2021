@@ -62,7 +62,7 @@ def play(game, cards):
 
 
 if __name__ == '__main__':
-    with open('4.txt') as f:
+    with open('input/4.txt') as f:
         raw = f.readlines()
 
     game = [int(a) for a in raw[0].split(',')]

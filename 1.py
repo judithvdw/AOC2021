@@ -9,7 +9,7 @@ def larger_measurements(window):
 
 
 if __name__ == '__main__':
-    with open('1.txt') as f:
+    with open('input/1.txt') as f:
         data = f.readlines()
         data = [int(x) for x in data]
 

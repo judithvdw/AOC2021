@@ -30,7 +30,7 @@ def part2(instructions):
 
 
 if __name__ == '__main__':
-    with open("2.txt") as f:
+    with open("input/2.txt") as f:
         raw = f.readlines()
         instructions = [a.split() for a in raw]
 

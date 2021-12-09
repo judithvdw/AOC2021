@@ -91,7 +91,7 @@ def get_number(mapping, display):
 
 if __name__ == '__main__':
 
-    with open("8.txt") as f:
+    with open("input/8.txt") as f:
         raw = f.readlines()
 
         bs = parse_data_part_1(raw)

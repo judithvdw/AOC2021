@@ -89,7 +89,7 @@ def part2(cords):
 
 
 if __name__ == '__main__':
-    with open("5.txt") as f:
+    with open("input/5.txt") as f:
         raw = f.readlines()
 
     cords = parse_input(raw)

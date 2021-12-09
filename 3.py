@@ -44,7 +44,7 @@ def get_power_consumption(report):
 
 
 if __name__ == '__main__':
-    with open("3.txt") as f:
+    with open("input/3.txt") as f:
         binary = f.readlines()
         binary = [[int(i) for i in b.strip()] for b in binary]
 
