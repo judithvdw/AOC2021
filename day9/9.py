@@ -1,5 +1,5 @@
 from collections import OrderedDict, Counter
-from functools import reduce
+from math import prod
 
 
 def low_point(cord, heightmap):
@@ -28,14 +28,7 @@ def get_map(raw):
     return d
 
 
-if __name__ == '__main__':
-    with open('9.txt') as f:
-        raw = f.readlines()
-        heightmap = get_map(raw)
-
-    low = get_low_points(heightmap)
-    print(f"Part 1: {sum(low.values()) + len(low)}")
-
+def part_2(heightmap):
     ordered_heightmap = OrderedDict(sorted(heightmap.items(), key=lambda x: x[1]))
     basin_mapping = {k: k for k, v in low.items()}
 
@@ -53,4 +46,14 @@ if __name__ == '__main__':
 
     c = Counter(basin_mapping.values())
 
-    print(reduce((lambda x, y: x * y), sorted(dict(c).values(), reverse=True)[:3]))
+    return prod(sorted(dict(c).values(), reverse=True)[:3])
+
+
+if __name__ == '__main__':
+    with open('9.txt') as f:
+        raw = f.readlines()
+        heightmap = get_map(raw)
+
+    low = get_low_points(heightmap)
+    print(f"Part 1: {sum(low.values()) + len(low)}")
+    print(f"Part 2: {part_2(heightmap)}")
