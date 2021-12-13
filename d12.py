@@ -16,7 +16,20 @@ def find_paths(current, visited):
         if next_cave == 'end':
             paths += 1
         elif next_cave.isupper() or next_cave not in visited:
-            paths += find_paths(next_cave, visited + (next_cave, ))
+            paths += find_paths(next_cave, visited + (next_cave,))
+    return paths
+
+
+def find_paths_pt2(current, visited):
+    paths = 0
+    for next_cave in cavesystem[current]:
+        if next_cave == 'start':
+            continue
+        elif next_cave == 'end':
+            paths += 1
+        elif next_cave.isupper() or next_cave not in visited or len([i for i in visited if i.islower()]) == len(
+                set([i for i in visited if i.islower()])):
+            paths += find_paths_pt2(next_cave, visited + (next_cave,))
     return paths
 
 
@@ -25,4 +38,5 @@ if __name__ == '__main__':
         raw = f.readlines()
         cavesystem = parse_input(raw)
 
-    print(find_paths('start', ('start', )))
+    print(f"Part 1: {find_paths('start', ('start',))}")
+    print(f"Part 2: {find_paths_pt2('start', ('start',))}")
